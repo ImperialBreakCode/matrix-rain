@@ -13,7 +13,8 @@ namespace MatrixRain.Views
 
         protected override void DisplayView()
         {
-            WriteLine("");
+            // fix this
+            WriteLine();
             WriteLine("Test Content");
 
             Nav();

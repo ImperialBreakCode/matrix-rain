@@ -17,6 +17,11 @@ namespace MatrixRain.Base.Models.Views
             Console.WriteLine(val);
         }
 
+        protected void WriteLine()
+        {
+            Console.WriteLine();
+        }
+
         protected void Write<T>(T val)
         {
             Console.Write(val);

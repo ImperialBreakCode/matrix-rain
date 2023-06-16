@@ -19,8 +19,6 @@ namespace MatrixRain.Base.Models.Views
 
         public sealed override void Display()
         {
-            
-
             if (!navIsInit)
             {
                 InitNavItems();
