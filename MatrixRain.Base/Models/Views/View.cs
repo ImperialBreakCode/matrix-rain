@@ -5,24 +5,45 @@ namespace MatrixRain.Base.Models.Views
 {
     public class View : BaseView, ISignalView
     {
-        protected event EventHandler<SignalArgs> KeySignal;
+        private bool navIsInit;
 
-        public View(INavigation navigation) : base(navigation)
+        protected event EventHandler<SignalArgs> Signal;
+
+        public View()
         {
             NavSection = new NavSection();
+            navIsInit = false;
         }
         
         public INavSection NavSection { get; set; }
 
         public sealed override void Display()
         {
-            WriteLine(NavSection.NavSectionString());
+            
+
+            if (!navIsInit)
+            {
+                InitNavItems();
+                navIsInit = true;
+            }
+
+            var currentColor = Console.ForegroundColor;
+            Console.ForegroundColor = BaseColor;
+
+            NavSection.PrintNav();
             DisplayView();
+
+            Console.ForegroundColor = currentColor;
         }
 
         public void SubscribeToSignal(EventHandler<SignalArgs> eventHandler)
         {
-            KeySignal += eventHandler;
+            Signal += eventHandler;
+        }
+
+        public void ChangeNavItemSelectionColor(ConsoleColor consoleColor)
+        {
+            NavSection.SelectedNavItemColor = consoleColor;
         }
 
         protected virtual void DisplayView()
@@ -30,9 +51,15 @@ namespace MatrixRain.Base.Models.Views
             WriteLine("This is a View");
         }
 
-        public void ChangeNavItemSelectionColor(ConsoleColor consoleColor)
+        protected virtual void InitNavItems()
         {
-            NavSection.SelectedNavItemColor = consoleColor;
+            throw new NotImplementedException();
+        }
+
+        protected void InvokeSignal(string message, string? data)
+        {
+            SignalArgs args = new SignalArgs(message, data);
+            Signal?.Invoke(this, args);
         }
     }
 }

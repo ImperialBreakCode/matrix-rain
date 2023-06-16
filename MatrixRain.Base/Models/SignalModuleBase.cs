@@ -3,15 +3,17 @@ using MatrixRain.Base.Models.Views;
 
 namespace MatrixRain.Base.Models
 {
-    public abstract class SignalModuleBase : IModule
+    public abstract class SignalModuleBase : ISignaModule
     {
+        private readonly ISignalView signalView;
+
         public SignalModuleBase(ISignalView view)
         {
-            View = view;
+            signalView = view;
             View.SubscribeToSignal(SignalHandler);
         }
 
-        protected ISignalView View { get; set; }
+        public ISignalView View => signalView;
 
         protected abstract void SignalHandler(object? sender, SignalArgs args);
         public void Run()

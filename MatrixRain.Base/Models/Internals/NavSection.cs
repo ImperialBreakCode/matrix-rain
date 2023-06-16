@@ -1,7 +1,6 @@
 ﻿using MatrixRain.Base.Interfaces;
 using MatrixRain.Base.Constants;
 using MatrixRain.Base.Models.Exceptions;
-using System.Text;
 
 namespace MatrixRain.Base.Models.Internals
 {
@@ -28,9 +27,14 @@ namespace MatrixRain.Base.Models.Internals
 
             NavItem navItem = new NavItem(itemName, displayString);
             navItems.Add(navItem);
+
+            if (navItems.Count == 1)
+            {
+                currentItem = 0;
+            }
         }
 
-        public void Down()
+        public void Up()
         {
             if (currentItem == -1)
             {
@@ -42,7 +46,7 @@ namespace MatrixRain.Base.Models.Internals
             }
         }
 
-        public void Up()
+        public void Down()
         {
             if (currentItem == -1)
             {
@@ -54,28 +58,23 @@ namespace MatrixRain.Base.Models.Internals
             }
         }
 
-        public string NavSectionString()
+        public void PrintNav()
         {
-            if (currentItem == -1)
-            {
-                return "";
-            }
-
-            StringBuilder stringBuilder = new StringBuilder();
-
             for (int i = 0; i < navItems.Count; i++)
             {
                 if (i == currentItem)
                 {
-                    stringBuilder.AppendLine($"> {navItems[i].ItemDisplayString}");
+                    var currentColor = Console.ForegroundColor;
+
+                    Console.ForegroundColor = SelectedNavItemColor;
+                    Console.WriteLine($"> {navItems[i].ItemDisplayString}");
+                    Console.ForegroundColor = currentColor;
                 }
                 else
                 {
-                    stringBuilder.AppendLine(navItems[i].ItemDisplayString);
+                    Console.WriteLine(navItems[i].ItemDisplayString);
                 }
             }
-
-            return stringBuilder.ToString();
         }
 
         public string CurrentItemName()

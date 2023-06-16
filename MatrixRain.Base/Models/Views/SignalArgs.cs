@@ -1,19 +1,17 @@
-﻿using MatrixRain.Base.Interfaces;
-
-namespace MatrixRain.Base.Models.Views
+﻿namespace MatrixRain.Base.Models.Views
 {
     public class SignalArgs : EventArgs
     {
         private readonly string signalMessage;
-        private readonly string data;
+        private readonly string? data;
 
-        public SignalArgs(string signalMessage, string data)
+        public SignalArgs(string signalMessage, string? data)
         {
             this.signalMessage = signalMessage;
             this.data = data;
         }
 
         public string SignalMessage => signalMessage;
-        public string Data => data;
+        public string? Data => data;
     }
 }

@@ -7,6 +7,6 @@
         public void AddNavItem(string itemName, string displayString);
         public void Up();
         public void Down();
-        public string NavSectionString();
+        public void PrintNav();
     }
 }

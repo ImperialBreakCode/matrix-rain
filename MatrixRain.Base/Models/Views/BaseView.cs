@@ -5,16 +5,12 @@ namespace MatrixRain.Base.Models.Views
 {
     public abstract class BaseView : IView
     {
-        private readonly INavigation navigation;
-
-        public BaseView(INavigation navigation)
+        public BaseView()
         {
-            this.navigation = navigation;
             BaseColor = ConsoleColors.BaseColor;
         }
 
         public ConsoleColor BaseColor { get; set; }
-        protected INavigation Navigation => navigation;
 
         protected void WriteLine<T>(T val)
         {
