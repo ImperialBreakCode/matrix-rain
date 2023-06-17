@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -8,7 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\QJect\QJect\QJect.csproj" />
     <ProjectReference Include="..\MatrixRain.Base\MatrixRain.Base.csproj" />
+    <ProjectReference Include="..\ModuleGenerator.Tools\ModuleGenerator.Tools.csproj" />
+    <ProjectReference Include="..\ModuleGenerator\ModuleGenerator.csproj" OutputItemType="Analyzer" />
   </ItemGroup>
 
 </Project>

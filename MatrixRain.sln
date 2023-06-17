@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixRain", "MatrixRain\MatrixRain.csproj", "{070293D5-9799-45CE-9291-B711A73CF59F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatrixRain", "MatrixRain\MatrixRain.csproj", "{070293D5-9799-45CE-9291-B711A73CF59F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QJect", "..\QJect\QJect\QJect.csproj", "{2B98F965-E2FD-4113-9F3A-902593C44935}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixRain.Base", "MatrixRain.Base\MatrixRain.Base.csproj", "{A85C35D7-1DA2-4006-BED4-25C951F5E74C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatrixRain.Base", "MatrixRain.Base\MatrixRain.Base.csproj", "{A85C35D7-1DA2-4006-BED4-25C951F5E74C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleGenerator.Tools", "ModuleGenerator.Tools\ModuleGenerator.Tools.csproj", "{C842CAAD-90A5-47D0-BBDA-14C7E8378790}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleGenerator", "ModuleGenerator\ModuleGenerator.csproj", "{F91F8848-B995-414F-9734-5EA4D2B29C70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{A85C35D7-1DA2-4006-BED4-25C951F5E74C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A85C35D7-1DA2-4006-BED4-25C951F5E74C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A85C35D7-1DA2-4006-BED4-25C951F5E74C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C842CAAD-90A5-47D0-BBDA-14C7E8378790}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C842CAAD-90A5-47D0-BBDA-14C7E8378790}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C842CAAD-90A5-47D0-BBDA-14C7E8378790}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C842CAAD-90A5-47D0-BBDA-14C7E8378790}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F91F8848-B995-414F-9734-5EA4D2B29C70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F91F8848-B995-414F-9734-5EA4D2B29C70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F91F8848-B995-414F-9734-5EA4D2B29C70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F91F8848-B995-414F-9734-5EA4D2B29C70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

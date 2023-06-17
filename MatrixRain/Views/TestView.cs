@@ -4,33 +4,21 @@ namespace MatrixRain.Views
 {
     internal class TestView : View
     {
-        protected override void InitNavItems()
-        {
-            NavSection.AddNavItem("1", "One");
-            NavSection.AddNavItem("2", "Two");
-            NavSection.AddNavItem("3", "Three");
-        }
-
+        
         protected override void DisplayView()
         {
-            // fix this
             WriteLine();
             WriteLine("Test Content");
 
-            Nav();
-        }
+            var key = Console.ReadKey().Key.ToString();
 
-        private void Nav()
-        {
-            var key = Console.ReadKey();
-
-            if (key.Key == ConsoleKey.UpArrow)
+            if (key == "y")
             {
-                NavSection.Up();
+                InvokeSignal("ActionOne", null);
             }
-            else if (key.Key == ConsoleKey.DownArrow)
+            else
             {
-                NavSection.Down();
+                InvokeSignal("smth", null);
             }
         }
     }

@@ -51,7 +51,7 @@ namespace MatrixRain.Base.Models.Views
 
         protected virtual void InitNavItems()
         {
-            throw new NotImplementedException();
+            Write("");
         }
 
         protected void InvokeSignal(string message, string? data)

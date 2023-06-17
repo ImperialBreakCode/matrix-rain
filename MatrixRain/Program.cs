@@ -13,13 +13,7 @@ namespace MatrixRain
             TestController testController = new TestController(nav);
             TestModule testModule = new TestModule(view, testController);
 
-            while (true)
-            {
-                Console.Clear();
-                testModule.Run();
-            }
-
-            
+            testModule.Run();
         }
     }
 }
