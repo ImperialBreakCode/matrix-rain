@@ -21,6 +21,9 @@ namespace ModuleGenerator
             context.AddSource($"QJectViewConfig.g.cs", GenerateViewQJectConfig.GenerateConfigSource(modules));
             context.AddSource($"QJectControllerConfig.g.cs", GenerateControllerQJectConfig.GenerateConfigSource(modules));
             context.AddSource($"QJectModuleConfig.g.cs", GenerateModuleQJectConfig.GenerateConfigSource(modules));
+
+            context.AddSource($"IModuleSignalConainer.g.cs", GenerateContainer.GenerateInterfaceSource());
+            context.AddSource($"SignalModuleContainer.g.cs", GenerateContainer.GenerateContainerSource(modules));
         }
 
         public void Initialize(GeneratorInitializationContext context)

@@ -1,6 +1,6 @@
 ﻿namespace MatrixRain.Base.Interfaces
 {
-    public interface ISignaModule : IModule
+    public interface ISignalModule : IModule
     {
         public ISignalView View { get; }
     }

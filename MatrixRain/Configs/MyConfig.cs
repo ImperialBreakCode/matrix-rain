@@ -10,6 +10,7 @@ namespace MatrixRain.Configs
         public override void Configure(IDependencyBuilder builder)
         {
             builder.RegisterSingleton<INavigation, Navigation>();
+            builder.RegisterSingleton<IModuleSignalConainer, SignalModuleContainer>();
         }
     }
 }

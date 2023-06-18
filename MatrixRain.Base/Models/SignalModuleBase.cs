@@ -3,7 +3,7 @@ using MatrixRain.Base.Models.Views;
 
 namespace MatrixRain.Base.Models
 {
-    public abstract class SignalModuleBase : ISignaModule
+    public abstract class SignalModuleBase : ISignalModule
     {
         private readonly ISignalView signalView;
 

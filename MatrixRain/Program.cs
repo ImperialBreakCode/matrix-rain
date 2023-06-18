@@ -1,8 +1,4 @@
-﻿using MatrixRain.Base.Models;
-using MatrixRain.Controllers;
-using MatrixRain.Views;
-using MatrixRain.Modules;
-using QJect;
+﻿using QJect;
 using MatrixRain.Configs;
 using QJect.Core;
 
@@ -23,11 +19,11 @@ namespace MatrixRain
 
             IQJectServiceProvider provider = qJectBuilder.Build();
 
-            var module = provider.GetService<TestModule>();
+            var module = provider.GetService<IModuleSignalConainer>();
 
             if (module is not null)
             {
-                module.Run();
+                module.Container["Test"].Run();
             }
             else
             {
