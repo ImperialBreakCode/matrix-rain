@@ -15,8 +15,12 @@ namespace ModuleGenerator
         {
             foreach (var module in modules)
             {
-                context.AddSource($"{module.Key}Module.g.cs", Generations.GenerateModuleSource(module.Value, module.Key));
+                context.AddSource($"{module.Key}Module.g.cs", GenerateModule.GenerateModuleSource(module.Value, module.Key));
             }
+
+            context.AddSource($"QJectViewConfig.g.cs", GenerateViewQJectConfig.GenerateConfigSource(modules));
+            context.AddSource($"QJectControllerConfig.g.cs", GenerateControllerQJectConfig.GenerateConfigSource(modules));
+            context.AddSource($"QJectModuleConfig.g.cs", GenerateModuleQJectConfig.GenerateConfigSource(modules));
         }
 
         public void Initialize(GeneratorInitializationContext context)

@@ -2,6 +2,9 @@
 using MatrixRain.Controllers;
 using MatrixRain.Views;
 using MatrixRain.Modules;
+using QJect;
+using MatrixRain.Configs;
+using QJect.Core;
 
 namespace MatrixRain
 {
@@ -9,12 +12,27 @@ namespace MatrixRain
     {
         static void Main(string[] args)
         {
-            TestView view = new TestView();
-            Navigation nav = new Navigation();
-            TestController testController = new TestController(nav);
+            QJectBuilder qJectBuilder = new QJectBuilder();
+            qJectBuilder.AddConfigs(c =>
+            {
+                c.AddConfig<QJectViewConfig>();
+                c.AddConfig<QJectControllerConfig>();
+                c.AddConfig<QJectModuleConfig>();
+                c.AddConfig<MyConfig>();
+            });
 
-            TestModule testModule = new TestModule(view, testController);
-            testModule.Run();
+            IQJectServiceProvider provider = qJectBuilder.Build();
+
+            var module = provider.GetService<TestModule>();
+
+            if (module is not null)
+            {
+                module.Run();
+            }
+            else
+            {
+                Console.WriteLine("Module is null");
+            }
         }
     }
 }

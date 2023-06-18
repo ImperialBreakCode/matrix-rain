@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ModuleGenerator.Utils
 {
-    internal static class Generations
+    internal static class GenerateModule
     {
         public static string GenerateModuleSource(ModuleItem module, string moduleName)
         {
