@@ -62,7 +62,15 @@ namespace ModuleGenerator
             }
 
             string key = viewName.EndsWith("View") ? viewName.Remove(viewName.Length - 4) : viewName;
-            list.Add(key, module);
+
+            if (!list.ContainsKey(key))
+            {
+                list.Add(key, module);
+            }
+            else
+            {
+                list[key] = module;
+            }
         }
 
         private void AddMethod(MethodDeclarationSyntax method, ModuleItem module)

@@ -2,7 +2,7 @@
 
 namespace MatrixRain.Views
 {
-    internal class TestView : View
+    public class TestView : View
     {
         
         protected override void DisplayView()
@@ -10,11 +10,11 @@ namespace MatrixRain.Views
             WriteLine();
             WriteLine("Test Content");
 
-            var key = Console.ReadKey().Key.ToString();
+            var key = Console.ReadKey(true).Key.ToString();
 
-            if (key == "y")
+            if (key == "Y")
             {
-                InvokeSignal("ActionOne", null);
+                InvokeSignal("wow", null);
             }
             else
             {

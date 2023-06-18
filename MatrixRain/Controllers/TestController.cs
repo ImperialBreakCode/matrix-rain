@@ -5,7 +5,7 @@ using ModuleGenerator.Tools.Attributes;
 namespace MatrixRain.Controllers
 {
     [SignalConnector("TestView")]
-    internal class TestController : Controller
+    public class TestController : Controller
     {
         public TestController(INavigation navigation) : base(navigation)
         {
@@ -17,6 +17,7 @@ namespace MatrixRain.Controllers
             Console.WriteLine("this is a console action");
         }
 
+        [ForSignal("wow")]
         public void ActionOne()
         {
             Console.WriteLine("this is action one");
