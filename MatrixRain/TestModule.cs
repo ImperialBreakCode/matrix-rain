@@ -2,6 +2,7 @@
 using MatrixRain.Base.Models;
 using MatrixRain.Base.Models.Views;
 using MatrixRain.Controllers;
+using MatrixRain.Views;
 
 namespace MatrixRain
 {
@@ -9,7 +10,7 @@ namespace MatrixRain
     {
         private readonly TestController controller;
 
-        public TestModule(ISignalView view, TestController testController) : base(view)
+        public TestModule(TestView view, TestController testController) : base(view)
         {
             controller = testController;
         }
