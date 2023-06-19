@@ -10,19 +10,9 @@
     {
         private readonly Random random;
 
-        private bool canWriteHighlight;
-        private bool canWriteMain;
-
         private ConsoleColor mainColor;
         private ConsoleColor highlightColor;
         private ConsoleColor brightColor;
-
-        private int speed;
-
-        private int height;
-        private int width;
-
-        private DropLine[] drops;
 
         private char Char => (char)random.Next(33, 127);
 
@@ -34,9 +24,23 @@
             highlightColor = ConsoleColor.Green;
             brightColor = ConsoleColor.White;
 
-            speed = 100;
+            Speed = 100;
 
             SetWidthHeight();
+        }
+
+        protected bool CanWriteHighlight { get; set; }
+        protected bool CanWriteMain { get; set; }
+        public int Speed { get; set; }
+        protected int Height { get; private set; }
+        protected int Width { get; private set; }
+        protected DropLine[] Drops { get; private set; }
+
+        public void SetColors(ConsoleColor main, ConsoleColor highlight, ConsoleColor leading)
+        {
+            mainColor = main;
+            highlightColor = highlight;
+            brightColor = leading;
         }
 
         public async Task RunAnimation(CancellationTokenSource tokenSource)
@@ -49,7 +53,7 @@
             await Task.Factory.StartNew(() => AnimationLoop(tokenSource.Token), tokenSource.Token);
         }
 
-        private void AnimationLoop(CancellationToken token)
+        protected virtual void AnimationLoop(CancellationToken token)
         {
             int i = 0;
 
@@ -66,11 +70,11 @@
 
                     if (i == 1)
                     {
-                        canWriteHighlight = true;
+                        CanWriteHighlight = true;
                     }
                     else if (i == 3)
                     {
-                        canWriteMain = true;
+                        CanWriteMain = true;
                     }
 
                     i++;
@@ -78,10 +82,10 @@
 
                 try
                 {
-                    Update();
-                    Thread.Sleep(speed);
+                    Update(0);
+                    Thread.Sleep(Speed);
                 }
-                catch (Exception)
+                catch (ArgumentOutOfRangeException)
                 {
                     Console.Clear();
                     Console.CursorVisible = false;
@@ -102,19 +106,19 @@
             }
         }
 
-        private void Update()
+        protected void Update(int space)
         {
-            for (int x = 0; x < width; x++)
+            for (int x = 0; x < Width; x++)
             {
                 // Writing leading char in the drop line (white color)
                 Console.ForegroundColor = brightColor;
-                Console.SetCursorPosition(x, drops[x].PosY);
+                Console.SetCursorPosition(x, Drops[x].PosY);
                 Console.Write(Char);
 
                 // Writing the preceeding char (highlighted color)
-                if (canWriteHighlight)
+                if (CanWriteHighlight)
                 {
-                    int highlightPos = drops[x].PosY - 1;
+                    int highlightPos = Drops[x].PosY - 1;
                     GetProperCoord(ref highlightPos);
 
                     Console.ForegroundColor = highlightColor;
@@ -123,9 +127,9 @@
                 }
 
                 // Writing after the higlighted area (main color)
-                if (canWriteMain)
+                if (CanWriteMain)
                 {
-                    int mainPos = drops[x].PosY - 3;
+                    int mainPos = Drops[x].PosY - 3;
                     GetProperCoord(ref mainPos);
 
                     Console.ForegroundColor = mainColor;
@@ -134,7 +138,8 @@
                 }
 
                 // Removing characters from the end of the line
-                int delCharPos = drops[x].PosY - drops[x].Length;
+
+                int delCharPos = Drops[x].PosY - ( Drops[x].Length + space );
 
                 GetProperCoord(ref delCharPos);
 
@@ -142,48 +147,48 @@
                 Console.Write(' ');
 
                 // updating the position of the drop line (main char + 1)
-                UpdateDropCoord(ref drops[x].PosY);
+                UpdateDropCoord(ref Drops[x].PosY);
             }
         }
 
-        private void GetProperCoord(ref int x)
+        protected void GetProperCoord(ref int x)
         {
             if (x < 0)
             {
-                x = height + x;
+                x = Height + x;
 
                 if (x < 0)
                 {
                     x = 0;
                 }
             }
-            else if (x > height - 1)
+            else if (x > Height - 1)
             {
-                x -= height;
+                x -= Height;
             }
         }
 
-        private void UpdateDropCoord(ref int x)
+        protected void UpdateDropCoord(ref int x)
         {
             x++;
 
-            if (x > height - 1)
+            if (x > Height - 1)
             {
                 x = 0;
             }
         }
 
-        private void SetDropLines()
+        protected void SetDropLines()
         {
             SetWidthHeight();
-            canWriteMain = false;
-            canWriteHighlight = false;
+            CanWriteMain = false;
+            CanWriteHighlight = false;
 
-            for (int i = 0; i < width; i++)
+            for (int i = 0; i < Width; i++)
             {
-                drops[i] = new DropLine
+                Drops[i] = new DropLine
                 {
-                    PosY = random.Next(height - 5),
+                    PosY = random.Next(Height - 5),
                     Length = random.Next(5, 40)
                 };
             }
@@ -191,10 +196,10 @@
 
         private void SetWidthHeight()
         {
-            height = Console.WindowHeight;
-            width = Console.WindowWidth;
+            Height = Console.WindowHeight;
+            Width = Console.WindowWidth;
 
-            drops = new DropLine[width];
-        }  
+            Drops = new DropLine[Width];
+        }
     }
 }

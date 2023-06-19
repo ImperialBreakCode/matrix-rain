@@ -7,6 +7,6 @@ namespace MatrixRain.Services.Interfaces
         public IMatrix MatrixRain { get; }
         public IMatrix MatrixAnimation { get; }
         public void RunMatrixRain();
-        public Task RunMatrixAnimation();
+        public void RunMatrixAnimation();
     }
 }

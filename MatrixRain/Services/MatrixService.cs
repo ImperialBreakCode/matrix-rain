@@ -7,6 +7,7 @@ namespace MatrixRain.Services
     {
         private readonly Random random;
         private IMatrix matrixRain;
+        private IMatrixVirusAnimation matrixAnimation;
 
         public MatrixService(Random random)
         {
@@ -18,11 +19,20 @@ namespace MatrixRain.Services
             get => matrixRain ??= new MatrixRainAnimation(random);
         }
 
-        public IMatrix MatrixAnimation => throw new NotImplementedException();
-
-        public Task RunMatrixAnimation()
+        public IMatrix MatrixAnimation
         {
-            throw new NotImplementedException();
+            get => matrixAnimation ??= new MatrixVirusAnimation(random);
+        }
+
+        public void RunMatrixAnimation()
+        {
+            CancellationTokenSource tokenSource = new CancellationTokenSource();
+
+            MatrixAnimation.RunAnimation(tokenSource);
+
+            Console.ReadKey();
+            tokenSource.Cancel();
+            Thread.Sleep(200);
         }
 
         public void RunMatrixRain()
