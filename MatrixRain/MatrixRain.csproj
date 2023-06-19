@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\QJect\QJect\QJect.csproj" />
     <ProjectReference Include="..\MatrixRain.Base\MatrixRain.Base.csproj" />
     <ProjectReference Include="..\ModuleGenerator.Tools\ModuleGenerator.Tools.csproj" />

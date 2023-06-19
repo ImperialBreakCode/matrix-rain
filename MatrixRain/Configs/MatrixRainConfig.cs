@@ -1,6 +1,7 @@
 ﻿using MatrixRain.Base.Interfaces;
 using MatrixRain.Base.Models;
 using MatrixRain.Interfaces;
+using MatrixRain.Models;
 using MatrixRain.Services;
 using MatrixRain.Services.Interfaces;
 using QJect;
@@ -15,8 +16,12 @@ namespace MatrixRain.Configs
             builder.RegisterSingleton<IModuleSignalConainer, SignalModuleContainer>();
             builder.RegisterSingleton<IMatrixRainApp, MatrixRainApp>();
             builder.RegisterSingleton<INavigation, Navigation>();
-            builder.RegisterSingleton<Random>();
+
             builder.RegisterTransient<IMatrixService, MatrixService>();
+            builder.RegisterTransient<ISettingsService, SettingsService>();
+            builder.RegisterTransient<ISettingsFactory, SettingsFactory>();
+
+            builder.RegisterSingleton<Random>();
         }
     }
 }
