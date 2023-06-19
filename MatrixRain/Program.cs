@@ -8,27 +8,17 @@ namespace MatrixRain
     {
         static void Main(string[] args)
         {
-            QJectBuilder qJectBuilder = new QJectBuilder();
-            qJectBuilder.AddConfigs(c =>
+            try
             {
-                c.AddConfig<QJectViewConfig>();
-                c.AddConfig<QJectControllerConfig>();
-                c.AddConfig<QJectModuleConfig>();
-                c.AddConfig<MyConfig>();
-            });
-
-            IQJectServiceProvider provider = qJectBuilder.Build();
-
-            var module = provider.GetService<IModuleSignalConainer>();
-
-            if (module is not null)
-            {
-                module.Container["Test"].Run();
+                StartUp program = new StartUp();
+                program.Start();
             }
-            else
+            catch (NullReferenceException ex)
             {
-                Console.WriteLine("Module is null");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(ex.Message);
             }
+            
         }
     }
 }

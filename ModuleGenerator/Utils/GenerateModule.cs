@@ -1,6 +1,4 @@
 ﻿using ModuleGenerator.Models;
-using System;
-using System.Collections.Generic;
 using System.Text;
 
 namespace ModuleGenerator.Utils
@@ -42,7 +40,7 @@ namespace MatrixRain.Modules
     {{
         private readonly {controller} controller;
 
-        public TestModule({view} view, {controller} controller) : base(view)
+        public {moduleName}Module({view} view, {controller} controller) : base(view)
         {{
             this.controller = controller;
         }}

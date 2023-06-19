@@ -67,12 +67,12 @@ namespace MatrixRain.Base.Models.Internals
                     var currentColor = Console.ForegroundColor;
 
                     Console.ForegroundColor = SelectedNavItemColor;
-                    Console.WriteLine($"> {navItems[i].ItemDisplayString}");
+                    Console.WriteLine($"\t  > {navItems[i].ItemDisplayString}");
                     Console.ForegroundColor = currentColor;
                 }
                 else
                 {
-                    Console.WriteLine(navItems[i].ItemDisplayString);
+                    Console.WriteLine($"\t{navItems[i].ItemDisplayString}");
                 }
             }
         }

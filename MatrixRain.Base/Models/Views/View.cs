@@ -28,6 +28,7 @@ namespace MatrixRain.Base.Models.Views
             var currentColor = Console.ForegroundColor;
             Console.ForegroundColor = BaseColor;
 
+            BeforeNav();
             NavSection.PrintNav();
             DisplayView();
 
@@ -50,6 +51,11 @@ namespace MatrixRain.Base.Models.Views
         }
 
         protected virtual void InitNavItems()
+        {
+            Write("");
+        }
+
+        protected virtual void BeforeNav()
         {
             Write("");
         }
