@@ -1,5 +1,6 @@
 ﻿using MatrixRain.Base.Interfaces;
 using MatrixRain.Base.Models;
+using MatrixRain.Constants;
 using MatrixRain.Services.Interfaces;
 using MatrixRain.Views;
 using ModuleGenerator.Tools.Attributes;
@@ -58,6 +59,23 @@ namespace MatrixRain.Controllers
             MatrixVirusSettings setting;
             Enum.TryParse(data, out setting);
 
+            switch (setting)
+            {
+                case MatrixVirusSettings.MatrixColor:
+                    Navigation.AddView(Routes.RegularMatrixColorView);
+                    break;
+
+                case MatrixVirusSettings.BrokenMatrixColor:
+                    Navigation.AddView(Routes.BrokenMatrixColorView);
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        public void GoBack()
+        {
             Navigation.GoBack();
         }
     }

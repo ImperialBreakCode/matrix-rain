@@ -5,23 +5,23 @@ using ModuleGenerator.Tools.Attributes;
 
 namespace MatrixRain.Controllers
 {
-    [SignalConnector("MatrixColorView")]
-    public class MatrixColorController : Controller
+    [SignalConnector("BrokenMatrixView")]
+    public class BrokenMatrixController : Controller
     {
-        private ISettingsService settingsService;
+        private readonly ISettingsService settingsService;
 
-        public MatrixColorController(INavigation navigation, ISettingsService settingsService) : base(navigation)
+        public BrokenMatrixController(INavigation navigation, ISettingsService settingsService) : base(navigation)
         {
             this.settingsService = settingsService;
         }
 
-        public void ChangeColor(string selection)
+        public void ChangeColor(string data)
         {
             var settings = settingsService.GetSettings();
 
             ConsoleColor color;
-            Enum.TryParse(selection, out color);
-            settings.MatrixColor = color;
+            Enum.TryParse(data, out color);
+            settings.BrokenMatrixColor = color;
 
             settingsService.UpdateSettings(settings);
 

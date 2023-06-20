@@ -14,5 +14,7 @@
         public const string MatrixSpeed = "MatrixSpeed";
 
         public const string MatrixVirusSettingsView = "MatrixVirusSettings";
+        public const string RegularMatrixColorView = "RegularMatrix";
+        public const string BrokenMatrixColorView = "BrokenMatrix";
     }
 }

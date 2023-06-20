@@ -8,7 +8,7 @@ namespace MatrixRain.Views
         BrokenMatrixColor,
         TextColor,
         Text,
-        SkullColor    
+        SkullColor
     }
 
     public class MatrixVirusSettingsView : ChangeColorView
@@ -16,11 +16,13 @@ namespace MatrixRain.Views
 
         private MatrixVirusSettings settings;
         private bool inMenu = false;
+        private bool goBackInputMatch = false;
 
         protected override void BeforeNav()
         {
-            WriteLine();
+            goBackInputMatch = false;
 
+            WriteLine();
             if (!inMenu)
             {
                 WriteLine("Matrix-virus animation settings".ToUpper());
@@ -63,6 +65,7 @@ namespace MatrixRain.Views
                         break;
 
                     default:
+                        goBackInputMatch = true;
                         break;
                 }
 
@@ -72,6 +75,12 @@ namespace MatrixRain.Views
 
         protected override void DisplayView()
         {
+            if (goBackInputMatch)
+            {
+                InvokeSignal("GoBack", null);
+                return;
+            }
+
             if (settings != MatrixVirusSettings.Text 
                 && settings != MatrixVirusSettings.MatrixColor 
                 && settings != MatrixVirusSettings.BrokenMatrixColor)
