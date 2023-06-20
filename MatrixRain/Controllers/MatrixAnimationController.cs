@@ -10,15 +10,18 @@ namespace MatrixRain.Controllers
     public class MatrixAnimationController : Controller
     {
         private readonly IMatrixService matrixService;
+        private readonly ISettingsService settingsService;
 
-        public MatrixAnimationController(INavigation navigation, IMatrixService matrixService) : base(navigation)
+        public MatrixAnimationController(INavigation navigation, IMatrixService matrixService, ISettingsService settingsService) 
+            : base(navigation)
         {
             this.matrixService = matrixService;
+            this.settingsService = settingsService;
         }
 
         public void StartMatrix()
         {
-            matrixService.RunMatrixAnimation();
+            matrixService.RunMatrixAnimation(settingsService.GetSettings());
         }
 
         [ForSignal("nav")]

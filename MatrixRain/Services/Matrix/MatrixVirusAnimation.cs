@@ -4,12 +4,20 @@
     {
         public MatrixVirusAnimation(Random random) : base(random)
         {
+            RegularMatrixColor = ConsoleColor.DarkGreen;
+            BrokenMatrixColor = ConsoleColor.DarkGreen;
+            TextColor = ConsoleColor.Green;
+            SkullColor = ConsoleColor.Green;
             Text = "SYSTEM FAILURE";
         }
 
         protected int PositionSkull => Width / 2 - 13;
 
         public string Text { get; set; }
+        public ConsoleColor RegularMatrixColor { get; set; }
+        public ConsoleColor BrokenMatrixColor { get; set; }
+        public ConsoleColor TextColor { get; set; }
+        public ConsoleColor SkullColor { get; set; }
 
         protected override void AnimationLoop(CancellationToken token)
         {
@@ -40,6 +48,15 @@
             
         }
 
+        private void UpdateColors(ConsoleColor color)
+        {
+            string colorHighlightStr = color.ToString().Remove(0, 4);
+            ConsoleColor highlightColor;
+            Enum.TryParse(colorHighlightStr, out highlightColor);
+
+            SetColors(color, highlightColor, ConsoleColor.White);
+        }
+
         private void MultiPhaseLoop(CancellationToken token)
         {
             int i = 0;
@@ -58,11 +75,13 @@
                 if (i <= 100)
                 {
                     Thread.Sleep(50);
+                    UpdateColors(RegularMatrixColor);
                     Update(0);
                 }
                 else if (i > 100 && i <= 150)
                 {
                     Thread.Sleep(50);
+                    UpdateColors(BrokenMatrixColor);
                     Update(80);
                 }
                 else if (i > 150 && i <= 220)
@@ -74,7 +93,7 @@
                 {
                     Console.Clear();
 
-                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = SkullColor;
                     if (i % 2 == 0)
                     {
                         WriteSkull();
@@ -108,6 +127,7 @@
 
                 GetProperCoord(ref delCharPos);
 
+                Console.ForegroundColor = TextColor;
                 Console.SetCursorPosition(x, delCharPos);
                 Console.Write(' ');
 

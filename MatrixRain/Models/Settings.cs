@@ -15,5 +15,6 @@
         public ConsoleColor BrokenMatrixColor { get; set; }
         public ConsoleColor TextColor { get; set; }
         public ConsoleColor SkullColor { get; set; }
+        public string Text { get; set; }
     }
 }

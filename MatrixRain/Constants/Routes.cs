@@ -13,6 +13,6 @@
         public const string MatrixColor = "MatrixColor";
         public const string MatrixSpeed = "MatrixSpeed";
 
-        public const string MatrixVirusSettingsView = "MatrixVirusSettingsView";
+        public const string MatrixVirusSettingsView = "MatrixVirusSettings";
     }
 }

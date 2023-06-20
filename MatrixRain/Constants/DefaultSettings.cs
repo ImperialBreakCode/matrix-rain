@@ -15,5 +15,6 @@
         public const ConsoleColor BrokenMatrixColor = ConsoleColor.DarkRed;
         public const ConsoleColor TextColor = ConsoleColor.DarkRed;
         public const ConsoleColor SkullColor = ConsoleColor.DarkRed;
+        public const string Text = "SYSTEM FAILURE";
     }
 }

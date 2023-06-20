@@ -18,6 +18,7 @@ namespace MatrixRain.Views
         {
             NavSection.AddNavItem(Routes.MatrixSpeed, "Change matrix animation speed.");
             NavSection.AddNavItem(Routes.MatrixColor, "Change matrix animation color.");
+            NavSection.AddNavItem(Routes.MatrixVirusSettingsView, "Matrix-virus animation settings.");
             NavSection.AddNavItem(Routes.InterfaceColor, "Change text ui color.");
             NavSection.AddNavItem(Routes.SelectionColor, "Change menu selection color.");
             NavSection.AddNavItem(ResetSettingsSelection, "Reset default settings");

@@ -20,15 +20,20 @@ namespace MatrixRain.Services
             get => matrixRain ??= new MatrixRainAnimation(random);
         }
 
-        public IMatrix MatrixAnimation
+        public IMatrixVirusAnimation MatrixAnimation
         {
             get => matrixAnimation ??= new MatrixVirusAnimation(random);
         }
 
-        public void RunMatrixAnimation()
+        public void RunMatrixAnimation(Settings settings)
         {
             CancellationTokenSource tokenSource = new CancellationTokenSource();
 
+            MatrixAnimation.RegularMatrixColor = settings.MatrixVirusColor;
+            MatrixAnimation.BrokenMatrixColor = settings.BrokenMatrixColor;
+            MatrixAnimation.TextColor = settings.TextColor;
+            MatrixAnimation.SkullColor = settings.SkullColor;
+            MatrixAnimation.Text = settings.Text;
             MatrixAnimation.RunAnimation(tokenSource);
 
             Console.ReadKey();

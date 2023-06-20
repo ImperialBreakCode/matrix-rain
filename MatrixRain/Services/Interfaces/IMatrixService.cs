@@ -6,8 +6,8 @@ namespace MatrixRain.Services.Interfaces
     public interface IMatrixService
     {
         public IMatrix MatrixRain { get; }
-        public IMatrix MatrixAnimation { get; }
+        public IMatrixVirusAnimation MatrixAnimation { get; }
         public void RunMatrixRain(Settings settings);
-        public void RunMatrixAnimation();
+        public void RunMatrixAnimation(Settings settings);
     }
 }

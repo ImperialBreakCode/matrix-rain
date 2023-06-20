@@ -16,7 +16,8 @@ namespace MatrixRain.Models
                 BrokenMatrixColor = DefaultSettings.BrokenMatrixColor,
                 MatrixVirusColor = DefaultSettings.MatrixVirusColor,
                 SkullColor = DefaultSettings.SkullColor,
-                TextColor = DefaultSettings.TextColor
+                TextColor = DefaultSettings.TextColor,
+                Text = DefaultSettings.Text
             };
         }
     }
