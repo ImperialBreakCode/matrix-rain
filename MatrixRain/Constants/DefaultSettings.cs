@@ -8,7 +8,7 @@
 
         // matrix rain
         public const ConsoleColor MatrixColor = ConsoleColor.DarkGreen;
-        public const int MatrixSpeed = 200;
+        public const int MatrixSpeed = 50;
 
         // matrix virus
         public const ConsoleColor MatrixVirusColor = ConsoleColor.DarkGreen;
