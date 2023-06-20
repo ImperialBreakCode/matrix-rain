@@ -10,10 +10,13 @@ namespace MatrixRain.Controllers
     public class MatrixController : Controller
     {
         private readonly IMatrixService matrixService;
+        private readonly ISettingsService settingsService;
 
-        public MatrixController(INavigation navigation, IMatrixService matrixService) : base(navigation)
+        public MatrixController(INavigation navigation, IMatrixService matrixService, ISettingsService settingsService) 
+            : base(navigation)
         {
             this.matrixService = matrixService;
+            this.settingsService = settingsService;
         }
 
         [ForSignal("nav")]
@@ -27,7 +30,7 @@ namespace MatrixRain.Controllers
 
         public void StartMatrix()
         {
-            matrixService.RunMatrixRain();
+            matrixService.RunMatrixRain(settingsService.GetSettings());
         }
     }
 }

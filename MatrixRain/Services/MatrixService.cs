@@ -1,4 +1,5 @@
-﻿using MatrixRain.Services.Interfaces;
+﻿using MatrixRain.Models;
+using MatrixRain.Services.Interfaces;
 using MatrixRain.Services.Matrix;
 
 namespace MatrixRain.Services
@@ -35,15 +36,21 @@ namespace MatrixRain.Services
             Thread.Sleep(200);
         }
 
-        public void RunMatrixRain()
+        public void RunMatrixRain(Settings settings)
         {
             CancellationTokenSource tokenSource = new CancellationTokenSource();
 
+            string highlightString = settings.MatrixColor.ToString().Remove(0, 4);
+            ConsoleColor highlight;
+            Enum.TryParse(highlightString, out highlight);
+
+            MatrixRain.SetColors(settings.MatrixColor, highlight, ConsoleColor.White);
+            MatrixRain.Speed = settings.MatrixRainSpeed;
             MatrixRain.RunAnimation(tokenSource);
 
             Console.ReadKey();
             tokenSource.Cancel();
-            Thread.Sleep(200);
+            Thread.Sleep(600);
         }
     }
 }

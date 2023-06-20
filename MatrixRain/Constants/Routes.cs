@@ -9,5 +9,7 @@
         public const string Settings = "Settings";
         public const string InterfaceColor = "InterfaceColor";
         public const string SelectionColor = "SelectionColor";
+        public const string MatrixColor = "MatrixColor";
+        public const string MatrixSpeed = "MatrixSpeed";
     }
 }

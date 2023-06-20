@@ -16,9 +16,11 @@ namespace MatrixRain.Views
 
         protected override void InitNavItems()
         {
-            NavSection.AddNavItem(ResetSettingsSelection, "Reset default settings");
+            NavSection.AddNavItem(Routes.MatrixSpeed, "Change matrix animation speed.");
+            NavSection.AddNavItem(Routes.MatrixColor, "Change matrix animation color.");
             NavSection.AddNavItem(Routes.InterfaceColor, "Change text ui color.");
             NavSection.AddNavItem(Routes.SelectionColor, "Change menu selection color.");
+            NavSection.AddNavItem(ResetSettingsSelection, "Reset default settings");
             NavSection.AddNavItem(Routes.Back, "Go back");
         }
 

@@ -24,7 +24,7 @@
             highlightColor = ConsoleColor.Green;
             brightColor = ConsoleColor.White;
 
-            Speed = 100;
+            Speed = 50;
 
             SetWidthHeight();
         }

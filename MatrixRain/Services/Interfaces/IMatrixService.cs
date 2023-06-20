@@ -1,4 +1,5 @@
-﻿using MatrixRain.Services.Matrix;
+﻿using MatrixRain.Models;
+using MatrixRain.Services.Matrix;
 
 namespace MatrixRain.Services.Interfaces
 {
@@ -6,7 +7,7 @@ namespace MatrixRain.Services.Interfaces
     {
         public IMatrix MatrixRain { get; }
         public IMatrix MatrixAnimation { get; }
-        public void RunMatrixRain();
+        public void RunMatrixRain(Settings settings);
         public void RunMatrixAnimation();
     }
 }

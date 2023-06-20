@@ -10,7 +10,9 @@ namespace MatrixRain.Models
             return new Settings()
             {
                 InterfaceColor = DefaultSettings.InterfaceColor,
-                SelectionColor = DefaultSettings.SelectionColor
+                SelectionColor = DefaultSettings.SelectionColor,
+                MatrixColor = DefaultSettings.MatrixColor,
+                MatrixRainSpeed = DefaultSettings.MatrixSpeed
             };
         }
     }
