@@ -8,6 +8,7 @@ namespace MatrixRain
     {
         static void Main(string[] args)
         {
+
             try
             {
                 StartUp program = new StartUp();

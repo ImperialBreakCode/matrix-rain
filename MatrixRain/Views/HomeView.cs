@@ -18,6 +18,7 @@ namespace MatrixRain.Views
         {
             NavSection.AddNavItem(Routes.Matrix, "Matrix Rain Animation");
             NavSection.AddNavItem(Routes.MatrixVirus, "Matrix-virus animation cycle (~33 seconds for a full animation cycle)");
+            NavSection.AddNavItem(Routes.Settings, "Settings");
         }
 
         protected override void DisplayView()

@@ -17,8 +17,9 @@ namespace MatrixRain.Configs
             builder.RegisterSingleton<IMatrixRainApp, MatrixRainApp>();
             builder.RegisterSingleton<INavigation, Navigation>();
 
+            builder.RegisterSingleton<ISettingsService, SettingsService>();
+
             builder.RegisterTransient<IMatrixService, MatrixService>();
-            builder.RegisterTransient<ISettingsService, SettingsService>();
             builder.RegisterTransient<ISettingsFactory, SettingsFactory>();
 
             builder.RegisterSingleton<Random>();

@@ -8,5 +8,7 @@ namespace MatrixRain.Services.Interfaces
         public void UpdateSettings(Settings settings);
         public void RestoreDefault();
         public void EnsureSettings();
+        public void Refresh();
+        public void SetRefreshAction(Action action);
     }
 }

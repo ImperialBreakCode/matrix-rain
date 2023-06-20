@@ -9,7 +9,10 @@ namespace MatrixRain.Services
     {
         private const string SettingsFolder = "Settings";
         private const string SettingsFile = "Settings.json";
+        
         private readonly ISettingsFactory settingsFactory;
+
+        private Action refreshAction;
 
         private string SettingsPath => Path.Combine(SettingsFolder, SettingsFile);
 
@@ -52,6 +55,26 @@ namespace MatrixRain.Services
         {
             string json = JsonConvert.SerializeObject(settings);
             File.WriteAllText(SettingsPath, json);
+        }
+
+        public void Refresh()
+        {
+            if (refreshAction is null)
+            {
+                throw new InvalidOperationException("Action is not assigned.");
+            }
+
+            refreshAction();
+        }
+
+        public void SetRefreshAction(Action action)
+        {
+            if (refreshAction is not null)
+            {
+                throw new InvalidOperationException("Action already assigned.");
+            }
+
+            refreshAction = action;
         }
     }
 }
