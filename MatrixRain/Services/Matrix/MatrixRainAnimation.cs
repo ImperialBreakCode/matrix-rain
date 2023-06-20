@@ -189,7 +189,7 @@
                 Drops[i] = new DropLine
                 {
                     PosY = random.Next(Height - 5),
-                    Length = random.Next(5, 40)
+                    Length = random.Next(5, 30)
                 };
             }
         }

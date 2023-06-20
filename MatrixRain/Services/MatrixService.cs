@@ -38,7 +38,7 @@ namespace MatrixRain.Services
 
             Console.ReadKey();
             tokenSource.Cancel();
-            Thread.Sleep(200);
+            Thread.Sleep(600);
         }
 
         public void RunMatrixRain(Settings settings)

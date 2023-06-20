@@ -34,6 +34,7 @@ namespace MatrixRain
         {
             while (IsRunning)
             {
+                Console.CursorVisible = false;
                 Console.Clear();
                 modules.Container[navigation.CurrentView()].Run();
             }

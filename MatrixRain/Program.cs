@@ -1,6 +1,7 @@
 ﻿using QJect;
 using MatrixRain.Configs;
 using QJect.Core;
+using MatrixRain.Base.Models.Exceptions;
 
 namespace MatrixRain
 {
@@ -8,18 +9,21 @@ namespace MatrixRain
     {
         static void Main(string[] args)
         {
-
             try
             {
                 StartUp program = new StartUp();
                 program.Start();
             }
-            catch (NullReferenceException ex)
+            catch(MatrixRainException e)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(ex.Message);
+                Utils.PrintError(e.Message);
             }
-            
+            catch (Exception)
+            {
+                Utils.PrintError("Unknown exception occured.");
+                Utils.PrintError("Close and start again the app.");
+            }
+
         }
     }
 }

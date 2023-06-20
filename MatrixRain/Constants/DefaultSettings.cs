@@ -3,8 +3,8 @@
     public static class DefaultSettings
     {
         // ui
-        public const ConsoleColor InterfaceColor = ConsoleColor.DarkGreen;
-        public const ConsoleColor SelectionColor = ConsoleColor.Green;
+        public const ConsoleColor InterfaceColor = ConsoleColor.Cyan;
+        public const ConsoleColor SelectionColor = ConsoleColor.White;
 
         // matrix rain
         public const ConsoleColor MatrixColor = ConsoleColor.DarkGreen;

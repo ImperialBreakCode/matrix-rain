@@ -9,7 +9,6 @@ namespace MatrixRain.Views
         {
             WriteLine("Matrix Rain + Virus Animation");
             WriteLine();
-            WriteLine("The animation lasts 33 second...");
             WriteLine();
             WriteLine("Press s start the animation.");
             WriteLine("Press any key to stop the animation.");

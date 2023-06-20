@@ -22,7 +22,6 @@ namespace MatrixRain.Views
         {
             goBackInputMatch = false;
 
-            WriteLine();
             if (!inMenu)
             {
                 WriteLine("Matrix-virus animation settings".ToUpper());
@@ -38,7 +37,7 @@ namespace MatrixRain.Views
                 WriteLine("type anything else to go back");
 
                 Console.CursorVisible = true;
-                var input = Console.ReadLine().Trim();
+                var input = Console.ReadLine()?.Trim();
                 Console.CursorVisible = false;
 
                 switch (input)
@@ -69,8 +68,10 @@ namespace MatrixRain.Views
                         break;
                 }
 
-                Console.Clear();
+                Console.Clear();   
             }
+
+            WriteLine();
         }
 
         protected override void DisplayView()
@@ -119,7 +120,10 @@ namespace MatrixRain.Views
             WriteLine();
             WriteLine("Type the text you want to be displayed during the virus animation:");
 
+            Console.CursorVisible = true;
             string text = Console.ReadLine() ?? "";
+            Console.CursorVisible = false;
+
             InvokeSignal("ChangeText", text);
         }
     }

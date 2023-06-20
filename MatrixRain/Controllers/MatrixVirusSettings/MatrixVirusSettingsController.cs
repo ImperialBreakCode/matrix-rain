@@ -49,8 +49,6 @@ namespace MatrixRain.Controllers
                 default:
                     break;
             }
-
-            Navigation.GoBack();
         }
 
         [ForSignal("nav")]

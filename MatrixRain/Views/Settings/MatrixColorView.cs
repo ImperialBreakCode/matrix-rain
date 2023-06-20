@@ -19,6 +19,7 @@ namespace MatrixRain.Views
                 {
                     continue;
                 }
+
                 NavSection.AddNavItem(color, color.Remove(0, 4));
             }
         }
