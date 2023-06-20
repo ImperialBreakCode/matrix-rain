@@ -63,7 +63,7 @@
                 else if (i > 100 && i <= 150)
                 {
                     Thread.Sleep(50);
-                    Update(50);
+                    Update(80);
                 }
                 else if (i > 150 && i <= 220)
                 {

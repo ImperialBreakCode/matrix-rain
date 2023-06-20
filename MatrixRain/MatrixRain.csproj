@@ -18,4 +18,8 @@
     <ProjectReference Include="..\ModuleGenerator\ModuleGenerator.csproj" OutputItemType="Analyzer" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\MatrixVirusSettings\" />
+  </ItemGroup>
+
 </Project>

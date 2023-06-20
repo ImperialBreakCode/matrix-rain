@@ -12,7 +12,11 @@ namespace MatrixRain.Models
                 InterfaceColor = DefaultSettings.InterfaceColor,
                 SelectionColor = DefaultSettings.SelectionColor,
                 MatrixColor = DefaultSettings.MatrixColor,
-                MatrixRainSpeed = DefaultSettings.MatrixSpeed
+                MatrixRainSpeed = DefaultSettings.MatrixSpeed,
+                BrokenMatrixColor = DefaultSettings.BrokenMatrixColor,
+                MatrixVirusColor = DefaultSettings.MatrixVirusColor,
+                SkullColor = DefaultSettings.SkullColor,
+                TextColor = DefaultSettings.TextColor
             };
         }
     }
